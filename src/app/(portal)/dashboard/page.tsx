@@ -30,9 +30,9 @@ export default async function DashboardPage() {
 
   // Get user's first name for greeting
   const fullName = user.user_metadata?.full_name ||
-                   user.user_metadata?.name ||
-                   user.email?.split('@')[0] ||
-                   'there'
+    user.user_metadata?.name ||
+    user.email?.split('@')[0] ||
+    'there'
   const firstName = fullName.split(' ')[0]
 
   // Get current hour for time-based greeting
@@ -42,9 +42,9 @@ export default async function DashboardPage() {
   return (
     <div className="p-8 lg:p-12">
       {/* Welcome Header */}
-      <header className="mb-10">
-        <h1 className="font-serif text-3xl lg:text-4xl text-charcoal-800 mb-2">
-          {greeting}, <span className="text-lavender-600">{firstName}</span>
+      <header className="mb-12 max-w-4xl">
+        <h1 className="font-serif text-4xl lg:text-5xl text-charcoal-900 mb-3 tracking-tight">
+          {greeting}, <span className="text-lavender-600 block sm:inline">{firstName}.</span>
         </h1>
         <p className="text-charcoal-500 text-lg">
           Welcome back to your gallery. Here are your photo sessions.

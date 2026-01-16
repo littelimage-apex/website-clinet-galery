@@ -25,7 +25,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
     >
       <div className="flex items-start justify-between gap-4 mb-4">
         <div className="flex-1 min-w-0">
-          <h3 className="font-serif text-xl font-semibold text-charcoal-800
+          <h3 className="font-serif text-2xl font-medium text-charcoal-800 tracking-tight
                          group-hover:text-lavender-700 transition-colors duration-[400ms]
                          truncate">
             {project.child_name || project.title}
@@ -56,7 +56,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                          transition-colors duration-[400ms]">
             View Gallery
             <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-[400ms]"
-                 fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
           </span>
