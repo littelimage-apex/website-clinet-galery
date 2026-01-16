@@ -24,11 +24,11 @@ export function Sidebar({ projects, userName, userEmail }: SidebarProps) {
   }
 
   return (
-    <aside className="w-72 h-screen bg-cream-50 border-r border-lavender-200 flex flex-col fixed left-0 top-0">
+    <aside className="w-72 h-screen bg-cream-50/90 backdrop-blur-md border-r border-lavender-200/60 flex flex-col fixed left-0 top-0 z-50 shadow-soft">
       {/* Logo */}
       <div className="p-6 border-b border-lavender-100">
         <Link href="/dashboard" className="block">
-          <h1 className="font-script text-2xl text-lavender-700 tracking-wide">
+          <h1 className="font-serif text-3xl text-lavender-800 tracking-tight">
             Little Image
           </h1>
           <p className="text-xs text-charcoal-400 mt-0.5 uppercase tracking-wider">
@@ -58,9 +58,9 @@ export function Sidebar({ projects, userName, userEmail }: SidebarProps) {
                     href={`/project/${project.id}`}
                     className={`block px-3 py-3 rounded-xl transition-all duration-[400ms]
                               ${isActive
-                                ? 'bg-white shadow-soft border border-lavender-200'
-                                : 'hover:bg-white/50'
-                              }`}
+                        ? 'bg-white shadow-soft border border-lavender-200'
+                        : 'hover:bg-white/50'
+                      }`}
                   >
                     <div className="flex items-start justify-between gap-2 mb-2">
                       <span className={`font-medium truncate text-sm
