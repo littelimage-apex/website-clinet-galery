@@ -1,0 +1,372 @@
+@import "tailwindcss";
+
+/* Little Image Photography - Lavender Keepsake Theme */
+
+:root {
+  /* Primary - Muted Lavender / Dusty Purple */
+  --lavender-50: #faf8fc;
+  --lavender-100: #f3eff7;
+  --lavender-200: #e9e1f0;
+  --lavender-300: #d8c9e4;
+  --lavender-400: #c1a8d3;
+  --lavender-500: #a785be;
+  --lavender-600: #8e68a4;
+  --lavender-700: #775689;
+  --lavender-800: #634871;
+  --lavender-900: #533d5e;
+  --lavender-950: #35233e;
+
+  /* Secondary - Cloud White & Soft Cream */
+  --cream-50: #fefdfb;
+  --cream-100: #fdfaf5;
+  --cream-200: #faf5eb;
+  --cream-300: #f5ecda;
+  --cream-400: #eddec2;
+
+  /* Neutral - Charcoal Gray (softened black) */
+  --charcoal-50: #f7f7f7;
+  --charcoal-100: #e3e3e3;
+  --charcoal-200: #c8c8c8;
+  --charcoal-300: #a4a4a4;
+  --charcoal-400: #818181;
+  --charcoal-500: #666666;
+  --charcoal-600: #515151;
+  --charcoal-700: #434343;
+  --charcoal-800: #383838;
+  --charcoal-900: #2d2d2d;
+  --charcoal-950: #1a1a1a;
+
+  /* Accents */
+  --sage-400: #94a89a;
+  --sage-500: #7a9480;
+  --champagne-400: #d4af7a;
+  --champagne-500: #c9a066;
+
+  /* Semantic colors */
+  --background: var(--cream-50);
+  --foreground: var(--charcoal-800);
+  --primary: var(--lavender-500);
+  --primary-hover: var(--lavender-600);
+  --primary-light: var(--lavender-100);
+  --border: var(--lavender-200);
+  --muted: var(--charcoal-400);
+  --success: var(--sage-500);
+  --accent: var(--champagne-500);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-success: var(--success);
+  --color-accent: var(--accent);
+
+  /* Lavender scale */
+  --color-lavender-50: var(--lavender-50);
+  --color-lavender-100: var(--lavender-100);
+  --color-lavender-200: var(--lavender-200);
+  --color-lavender-300: var(--lavender-300);
+  --color-lavender-400: var(--lavender-400);
+  --color-lavender-500: var(--lavender-500);
+  --color-lavender-600: var(--lavender-600);
+  --color-lavender-700: var(--lavender-700);
+  --color-lavender-800: var(--lavender-800);
+  --color-lavender-900: var(--lavender-900);
+
+  /* Cream scale */
+  --color-cream-50: var(--cream-50);
+  --color-cream-100: var(--cream-100);
+  --color-cream-200: var(--cream-200);
+  --color-cream-300: var(--cream-300);
+
+  /* Charcoal scale */
+  --color-charcoal-400: var(--charcoal-400);
+  --color-charcoal-500: var(--charcoal-500);
+  --color-charcoal-600: var(--charcoal-600);
+  --color-charcoal-700: var(--charcoal-700);
+  --color-charcoal-800: var(--charcoal-800);
+
+  /* Accents */
+  --color-sage: var(--sage-500);
+  --color-champagne: var(--champagne-500);
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Quicksand', system-ui, sans-serif;
+  --font-script: 'Dancing Script', cursive;
+
+  /* Transitions - calm and fluid */
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-medium: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Border radius - soft geometry */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-full: 9999px;
+}
+
+/* Google Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography utilities */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+/* Soft shadow for lifted effect */
+.shadow-soft {
+  box-shadow: 0 4px 20px -4px rgba(167, 133, 190, 0.15),
+              0 8px 32px -8px rgba(167, 133, 190, 0.1);
+}
+
+.shadow-lifted {
+  box-shadow: 0 8px 30px -6px rgba(167, 133, 190, 0.25),
+              0 16px 48px -12px rgba(167, 133, 190, 0.15);
+}
+
+/* Image hover effect - "picked up from table" */
+.image-hover {
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+}
+
+.image-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px -8px rgba(167, 133, 190, 0.3),
+              0 20px 60px -16px rgba(167, 133, 190, 0.2);
+}
+
+/* Selection border glow */
+.selection-glow {
+  box-shadow: 0 0 0 3px var(--lavender-300),
+              0 0 20px rgba(167, 133, 190, 0.4);
+}
+
+/* Backdrop blur for modals */
+.backdrop-blur-soft {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Button base styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-medium);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: var(--primary-light);
+  color: var(--lavender-700);
+}
+
+.btn-secondary:hover {
+  background: var(--lavender-200);
+}
+
+/* Card styles */
+.card {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: 0 2px 12px rgba(167, 133, 190, 0.08);
+  border: 1px solid var(--lavender-100);
+}
+
+/* Stage badges */
+.stage-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.stage-badge-selection {
+  background: var(--lavender-100);
+  color: var(--lavender-700);
+}
+
+.stage-badge-editing {
+  background: var(--champagne-400);
+  color: var(--charcoal-800);
+}
+
+.stage-badge-ready {
+  background: var(--sage-400);
+  color: white;
+}
+
+/* Locked state for submitted stages */
+.locked-state {
+  opacity: 0.6;
+  pointer-events: none;
+  filter: grayscale(20%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream-100);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--lavender-300);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--lavender-400);
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--lavender-400);
+  outline-offset: 2px;
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.9);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--transition-slow) ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn var(--transition-slow) ease-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+/* Masonry grid helper */
+.masonry-grid {
+  column-count: 2;
+  column-gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .masonry-grid {
+    column-count: 3;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry-grid {
+    column-count: 4;
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}

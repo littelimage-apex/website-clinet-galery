@@ -1,0 +1,67 @@
+import Link from 'next/link'
+import { Project } from '@/types/database'
+import { StageBadge } from './StageBadge'
+
+interface ProjectCardProps {
+  project: Project
+}
+
+export function ProjectCard({ project }: ProjectCardProps) {
+  const formatDate = (dateString: string | null) => {
+    if (!dateString) return 'Date not set'
+    return new Date(dateString).toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric'
+    })
+  }
+
+  return (
+    <Link
+      href={`/project/${project.id}`}
+      className="group block bg-white rounded-2xl p-6 border border-lavender-200
+                 shadow-soft hover:shadow-lifted transition-all duration-[400ms]
+                 hover:-translate-y-1"
+    >
+      <div className="flex items-start justify-between gap-4 mb-4">
+        <div className="flex-1 min-w-0">
+          <h3 className="font-serif text-xl font-semibold text-charcoal-800
+                         group-hover:text-lavender-700 transition-colors duration-[400ms]
+                         truncate">
+            {project.child_name || project.title}
+          </h3>
+          {project.occasion && (
+            <p className="text-charcoal-500 text-sm mt-1 capitalize">
+              {project.occasion}
+            </p>
+          )}
+        </div>
+        <StageBadge stage={project.current_stage} />
+      </div>
+
+      <div className="flex items-center gap-2 text-charcoal-400 text-sm">
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+        </svg>
+        <span>{formatDate(project.session_date)}</span>
+      </div>
+
+      <div className="mt-4 pt-4 border-t border-lavender-100">
+        <div className="flex items-center justify-between">
+          <span className="text-xs text-charcoal-400 uppercase tracking-wide">
+            {project.package_limit} photos in package
+          </span>
+          <span className="text-lavender-500 group-hover:text-lavender-600
+                         text-sm font-medium flex items-center gap-1
+                         transition-colors duration-[400ms]">
+            View Gallery
+            <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-[400ms]"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </Link>
+  )
+}
