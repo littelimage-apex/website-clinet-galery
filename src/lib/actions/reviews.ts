@@ -4,6 +4,9 @@ import { createClient } from '@/lib/supabase/server'
 import { revalidatePath } from 'next/cache'
 import { RevisionItem, ClientData } from '@/types/database'
 
+// Json type for Supabase JSONB fields
+type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[]
+
 interface ActionResult {
   success: boolean
   error?: string
@@ -31,7 +34,7 @@ export async function addRevisionComment(
       return { success: false, error: 'Project not found' }
     }
 
-    const clientData = project.client_data as ClientData
+    const clientData = project.client_data as unknown as ClientData
     const revisionHistory = clientData.revision_history || []
 
     // Find the latest revision for this filename
@@ -71,7 +74,7 @@ export async function addRevisionComment(
         client_data: {
           ...clientData,
           revision_history: updatedHistory
-        },
+        } as unknown as Json,
         updated_at: new Date().toISOString()
       })
       .eq('id', projectId)
@@ -109,7 +112,7 @@ export async function approveImage(
       return { success: false, error: 'Project not found' }
     }
 
-    const clientData = project.client_data as ClientData
+    const clientData = project.client_data as unknown as ClientData
     const revisionHistory = clientData.revision_history || []
 
     // Find the latest revision for this filename and mark as approved
@@ -133,7 +136,7 @@ export async function approveImage(
         client_data: {
           ...clientData,
           revision_history: updatedHistory
-        },
+        } as unknown as Json,
         updated_at: new Date().toISOString()
       })
       .eq('id', projectId)
@@ -172,7 +175,7 @@ export async function requestRevision(
       return { success: false, error: 'Project not found' }
     }
 
-    const clientData = project.client_data as ClientData
+    const clientData = project.client_data as unknown as ClientData
     const revisionHistory = clientData.revision_history || []
 
     // Find the latest revision for this filename
@@ -198,7 +201,7 @@ export async function requestRevision(
         client_data: {
           ...clientData,
           revision_history: updatedHistory
-        },
+        } as unknown as Json,
         updated_at: new Date().toISOString()
       })
       .eq('id', projectId)
@@ -238,7 +241,7 @@ export async function approveAllImages(projectId: string): Promise<ActionResult>
       return { success: false, error: 'Project is not in review stage' }
     }
 
-    const clientData = project.client_data as ClientData
+    const clientData = project.client_data as unknown as ClientData
     const revisionHistory = clientData.revision_history || []
 
     // Get unique filenames and their latest versions

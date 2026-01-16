@@ -3,7 +3,9 @@
 import { revalidatePath } from 'next/cache'
 import { createClient } from '@/lib/supabase/server'
 import { SelectionItem } from '@/types/database'
-import { Json } from '@/types/supabase'
+
+// Json type for Supabase JSONB fields
+type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[]
 
 interface ActionResult {
   success: boolean
@@ -50,7 +52,7 @@ export async function updateSelectionManifest(
         client_data: {
           selection_manifest: selections,
           revision_history: []
-        }
+        } as unknown as Json
       })
       .eq('id', projectId)
       .eq('user_id', user.id)
@@ -116,7 +118,7 @@ export async function submitSelection(
         client_data: {
           selection_manifest: selections,
           revision_history: []
-        },
+        } as unknown as Json,
         status: 'submitted',
         current_stage: 2
       })
