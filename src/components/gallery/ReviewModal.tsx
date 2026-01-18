@@ -98,7 +98,7 @@ export function ReviewModal({
     >
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-charcoal-900/60 backdrop-blur-soft transition-opacity duration-[400ms]"
+        className="absolute inset-0 bg-sage-900/60 backdrop-blur-soft transition-opacity duration-[400ms]"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -118,7 +118,7 @@ export function ReviewModal({
             absolute top-4 right-4 z-10
             w-10 h-10 rounded-full bg-white/90 hover:bg-white
             flex items-center justify-center
-            text-charcoal-500 hover:text-charcoal-700
+            text-sage-500 hover:text-sage-700
             shadow-soft transition-all duration-[400ms]
           "
           aria-label="Close modal"
@@ -129,7 +129,7 @@ export function ReviewModal({
         </button>
 
         {/* Left side - Image */}
-        <div className="flex-1 bg-charcoal-50 flex items-center justify-center p-6 min-h-[300px] lg:min-h-[500px]">
+        <div className="flex-1 bg-sage-50 flex items-center justify-center p-6 min-h-[300px] lg:min-h-[500px]">
           <div className="relative w-full h-full max-h-[70vh] flex items-center justify-center">
             <Image
               src={imageUrl}
@@ -143,17 +143,17 @@ export function ReviewModal({
         </div>
 
         {/* Right side - Review panel */}
-        <div className="w-full lg:w-[400px] flex flex-col bg-cream-50 border-l border-lavender-100">
+        <div className="w-full lg:w-[400px] flex flex-col bg-cream-50 border-l border-sage-100">
           {/* Header */}
-          <div className="px-6 py-4 border-b border-lavender-100 bg-white">
-            <h2 id="review-modal-title" className="font-serif text-xl text-charcoal-800">
+          <div className="px-6 py-4 border-b border-sage-100 bg-white">
+            <h2 id="review-modal-title" className="font-serif text-xl text-sage-800">
               Review Image
             </h2>
             <div className="flex items-center gap-3 mt-2">
-              <span className="text-sm text-charcoal-500 truncate flex-1">
+              <span className="text-sm text-sage-500 truncate flex-1">
                 {filename}
               </span>
-              <span className="text-xs px-2 py-1 rounded-full bg-lavender-100 text-lavender-700">
+              <span className="text-xs px-2 py-1 rounded-full bg-sage-100 text-sage-700">
                 v{currentVersion}
               </span>
             </div>
@@ -163,8 +163,8 @@ export function ReviewModal({
           </div>
 
           {/* Version history */}
-          <div className="px-6 py-3 border-b border-lavender-100 bg-lavender-50/50">
-            <h3 className="text-xs font-medium text-charcoal-500 uppercase tracking-wider">
+          <div className="px-6 py-3 border-b border-sage-100 bg-sage-50/50">
+            <h3 className="text-xs font-medium text-sage-500 uppercase tracking-wider">
               Version History
             </h3>
             <div className="flex gap-2 mt-2 overflow-x-auto py-1">
@@ -174,8 +174,8 @@ export function ReviewModal({
                   className={`
                     px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-[400ms]
                     ${version === currentVersion
-                      ? 'bg-lavender-500 text-white'
-                      : 'bg-white text-charcoal-600 hover:bg-lavender-100'}
+                      ? 'bg-sage-500 text-white'
+                      : 'bg-white text-sage-600 hover:bg-sage-100'}
                   `}
                 >
                   v{version}
@@ -186,7 +186,7 @@ export function ReviewModal({
 
           {/* Conversation thread */}
           <div className="flex-1 overflow-y-auto px-6 py-4 min-h-[200px]">
-            <h3 className="text-xs font-medium text-charcoal-500 uppercase tracking-wider mb-3">
+            <h3 className="text-xs font-medium text-sage-500 uppercase tracking-wider mb-3">
               Conversation
             </h3>
             <RevisionThread revisions={revisions} filename={filename} />
@@ -194,8 +194,8 @@ export function ReviewModal({
 
           {/* Feedback input */}
           {localStatus !== 'approved' && (
-            <div className="px-6 py-4 border-t border-lavender-100 bg-white">
-              <label htmlFor="feedback" className="block text-sm font-medium text-charcoal-700 mb-2">
+            <div className="px-6 py-4 border-t border-sage-100 bg-white">
+              <label htmlFor="feedback" className="block text-sm font-medium text-sage-700 mb-2">
                 Add Feedback
               </label>
               <textarea
@@ -205,9 +205,9 @@ export function ReviewModal({
                 placeholder="Describe any changes you'd like..."
                 className="
                   w-full h-24 px-4 py-3 rounded-xl resize-none
-                  bg-cream-50 border border-lavender-200
-                  text-charcoal-700 placeholder:text-charcoal-400
-                  focus:outline-none focus:ring-2 focus:ring-lavender-300 focus:border-transparent
+                  bg-cream-50 border border-sage-200
+                  text-sage-700 placeholder:text-sage-400
+                  focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-transparent
                   transition-all duration-[400ms]
                 "
                 disabled={isPending}
@@ -220,7 +220,7 @@ export function ReviewModal({
                   disabled={isPending || !feedback.trim()}
                   className="
                     flex-1 px-4 py-3 rounded-full font-medium text-sm
-                    bg-[var(--champagne-400)] text-charcoal-800
+                    bg-[var(--champagne-400)] text-sage-800
                     hover:bg-[var(--champagne-500)]
                     disabled:opacity-50 disabled:cursor-not-allowed
                     transition-all duration-[400ms]
@@ -268,7 +268,7 @@ export function ReviewModal({
 
           {/* Approved state */}
           {localStatus === 'approved' && (
-            <div className="px-6 py-4 border-t border-lavender-100 bg-[var(--sage-400)]/10">
+            <div className="px-6 py-4 border-t border-sage-100 bg-[var(--sage-400)]/10">
               <div className="flex items-center gap-3 text-[var(--sage-500)]">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />

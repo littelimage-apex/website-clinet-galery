@@ -51,7 +51,7 @@ export function ImageCard({
 
         {/* Hover overlay */}
         <div className={`
-          absolute inset-0 bg-lavender-900/0 group-hover:bg-lavender-900/20
+          absolute inset-0 bg-sage-900/0 group-hover:bg-sage-900/20
           transition-all duration-[400ms]
         `} />
 
@@ -60,7 +60,7 @@ export function ImageCard({
           absolute inset-0 flex items-center justify-center
           opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms]
         `}>
-          <span className="bg-white/90 text-charcoal-700 px-3 py-1.5 rounded-full text-xs font-medium shadow-soft">
+          <span className="bg-white/90 text-sage-700 px-3 py-1.5 rounded-full text-xs font-medium shadow-soft">
             Click to add notes
           </span>
         </div>
@@ -80,8 +80,8 @@ export function ImageCard({
           flex items-center justify-center
           transition-all duration-[400ms]
           ${isSelected
-            ? 'bg-lavender-500 text-white scale-100'
-            : 'bg-white/80 text-lavender-400 scale-90 opacity-0 group-hover:opacity-100 group-hover:scale-100'
+            ? 'bg-sage-500 text-white scale-100'
+            : 'bg-white/80 text-sage-400 scale-90 opacity-0 group-hover:opacity-100 group-hover:scale-100'
           }
           ${disabled && !isSelected ? 'cursor-not-allowed' : 'hover:scale-110'}
           shadow-soft
@@ -96,7 +96,7 @@ export function ImageCard({
       {/* Selected indicator */}
       {isSelected && (
         <div className="absolute bottom-3 left-3 right-3">
-          <div className="bg-lavender-500 text-white text-xs font-medium px-3 py-1.5 rounded-full text-center">
+          <div className="bg-sage-500 text-white text-xs font-medium px-3 py-1.5 rounded-full text-center">
             Selected
           </div>
         </div>
@@ -108,7 +108,7 @@ export function ImageCard({
         opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms]
         ${isSelected ? 'hidden' : ''}
       `}>
-        <div className="bg-charcoal-900/70 text-white text-xs px-2 py-1 rounded truncate">
+        <div className="bg-sage-900/70 text-white text-xs px-2 py-1 rounded truncate">
           {filename}
         </div>
       </div>

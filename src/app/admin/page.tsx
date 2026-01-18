@@ -55,10 +55,10 @@ export default async function AdminPage() {
   return (
     <div className="p-8">
       <div className="mb-8">
-        <h1 className="font-serif text-3xl text-charcoal-800 mb-2">
+        <h1 className="font-serif text-3xl text-sage-800 mb-2">
           Birds-Eye View
         </h1>
-        <p className="text-charcoal-500">
+        <p className="text-sage-500">
           Overview of all client projects and their current status
         </p>
       </div>
@@ -72,7 +72,7 @@ export default async function AdminPage() {
       />
 
       <div className="mt-8">
-        <h2 className="font-serif text-xl text-charcoal-800 mb-4">
+        <h2 className="font-serif text-xl text-sage-800 mb-4">
           All Projects
         </h2>
         <ProjectsTable projects={adminProjects} />

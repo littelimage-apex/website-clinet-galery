@@ -1,29 +1,24 @@
 import type { Metadata } from "next";
-import { Quicksand, Playfair_Display, Dancing_Script } from "next/font/google";
+import { Solway, Nunito } from "next/font/google";
 import "./globals.css";
 
-const quicksand = Quicksand({
-  variable: "--font-quicksand",
+const solway = Solway({
+  variable: "--font-solway",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "700"],
+  display: "swap",
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const nunito = Nunito({
+  variable: "--font-nunito",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const dancingScript = Dancing_Script({
-  variable: "--font-dancing",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Little Image Photography | Newborn & Childhood Photography",
-  description: "Capturing life's most precious beginnings. Professional newborn and childhood photography for families who cherish timeless memories.",
-  keywords: ["newborn photography", "baby photos", "childhood photography", "family portraits", "professional photographer"],
+  title: "Little Image Photography",
+  description: "Cozy & Comfort photography for the modern family.",
 };
 
 export default function RootLayout({
@@ -34,8 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${quicksand.variable} ${playfair.variable} ${dancingScript.variable} antialiased`}
-        style={{ fontFamily: "var(--font-quicksand), system-ui, sans-serif" }}
+        className={`${solway.variable} ${nunito.variable} antialiased font-sans bg-background text-foreground`}
       >
         {children}
       </body>

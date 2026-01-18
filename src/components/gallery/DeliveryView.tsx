@@ -55,23 +55,23 @@ export function DeliveryView({
     return (
       <div className={`min-h-[60vh] flex items-center justify-center ${className}`}>
         <div className="text-center max-w-md mx-auto px-6">
-          <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-charcoal-100 flex items-center justify-center">
-            <Lock className="w-10 h-10 text-charcoal-400" />
+          <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-sage-100 flex items-center justify-center">
+            <Lock className="w-10 h-10 text-sage-400" />
           </div>
           <h2
-            className="font-serif text-2xl text-charcoal-800 mb-3"
+            className="font-serif text-2xl text-sage-800 mb-3"
             style={{ fontFamily: 'var(--font-serif)' }}
           >
             Your Photos Are Almost Ready
           </h2>
-          <p className="text-charcoal-500 leading-relaxed">
+          <p className="text-sage-500 leading-relaxed">
             Your final edited photos will appear here once they&apos;re ready for download.
             We&apos;re still perfecting every detail to make your memories shine.
           </p>
-          <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lavender-100 text-lavender-700 text-sm">
+          <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sage-100 text-sage-700 text-sm">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lavender-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-lavender-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sage-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-sage-500"></span>
             </span>
             Currently in Stage {currentStage}
           </div>
@@ -89,12 +89,12 @@ export function DeliveryView({
             <ImageIcon className="w-10 h-10 text-[var(--sage-500)]" />
           </div>
           <h2
-            className="font-serif text-2xl text-charcoal-800 mb-3"
+            className="font-serif text-2xl text-sage-800 mb-3"
             style={{ fontFamily: 'var(--font-serif)' }}
           >
             Photos Are Being Prepared
           </h2>
-          <p className="text-charcoal-500 leading-relaxed">
+          <p className="text-sage-500 leading-relaxed">
             Your final photos are being uploaded and will appear here shortly.
             Please check back soon!
           </p>
@@ -125,7 +125,7 @@ export function DeliveryView({
       </div>
 
       {/* Image Count */}
-      <p className="text-center text-charcoal-500">
+      <p className="text-center text-sage-500">
         {images.length} beautiful {images.length === 1 ? 'photo' : 'photos'} ready for you
       </p>
 
@@ -198,20 +198,20 @@ export function DeliveryView({
       </div>
 
       {/* Thank You Footer */}
-      <div className="text-center pt-8 pb-4 border-t border-lavender-100">
+      <div className="text-center pt-8 pb-4 border-t border-sage-100">
         <p
-          className="font-script text-xl text-[var(--lavender-500)] mb-2"
-          style={{ fontFamily: 'var(--font-script)' }}
+          className="font-serif text-xl text-[var(--sage-500)] mb-2"
+          style={{ fontFamily: 'var(--font-serif)' }}
         >
           Thank you for choosing
         </p>
         <p
-          className="font-serif text-2xl text-charcoal-800"
+          className="font-serif text-2xl text-sage-800"
           style={{ fontFamily: 'var(--font-serif)' }}
         >
           Little Image Photography
         </p>
-        <p className="text-charcoal-500 text-sm mt-2">
+        <p className="text-sage-500 text-sm mt-2">
           We hope these images bring you joy for years to come.
         </p>
       </div>

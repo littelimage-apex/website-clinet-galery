@@ -66,21 +66,21 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <div className="min-h-screen">
       {/* Project Header */}
-      <div className="bg-white border-b border-lavender-100 px-8 py-6">
+      <div className="bg-white border-b border-sage-100 px-8 py-6">
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="font-serif text-2xl text-charcoal-800">
+            <h1 className="font-serif text-2xl text-sage-800">
               {project.child_name || project.title}
             </h1>
             {project.occasion && (
-              <p className="text-charcoal-500 mt-1 capitalize">
+              <p className="text-sage-500 mt-1 capitalize">
                 {project.occasion} Session
               </p>
             )}
           </div>
           <div className="text-right">
-            <p className="text-sm text-charcoal-400">Package</p>
-            <p className="font-semibold text-lavender-700">
+            <p className="text-sm text-sage-400">Package</p>
+            <p className="font-semibold text-sage-700">
               {project.package_limit} Photos
             </p>
           </div>

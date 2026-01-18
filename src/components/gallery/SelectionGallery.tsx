@@ -90,17 +90,17 @@ export function SelectionGallery({ project, images, clientData }: SelectionGalle
   if (submitSuccess) {
     return (
       <div className="flex flex-col items-center justify-center py-20 animate-fade-in">
-        <div className="w-20 h-20 bg-lavender-100 rounded-full flex items-center justify-center mb-6">
-          <svg className="w-10 h-10 text-lavender-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <div className="w-20 h-20 bg-sage-100 rounded-full flex items-center justify-center mb-6">
+          <svg className="w-10 h-10 text-sage-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
           </svg>
         </div>
-        <h2 className="font-serif text-3xl text-charcoal-800 mb-3">Thank You!</h2>
-        <p className="text-charcoal-500 text-center max-w-md">
+        <h2 className="font-serif text-3xl text-sage-800 mb-3">Thank You!</h2>
+        <p className="text-sage-500 text-center max-w-md">
           Your selections have been received. We&apos;ll begin working on your photos
           and notify you when they&apos;re ready for review.
         </p>
-        <p className="text-lavender-600 font-medium mt-4">
+        <p className="text-sage-600 font-medium mt-4">
           {selectedCount} photos selected
         </p>
       </div>
@@ -111,15 +111,15 @@ export function SelectionGallery({ project, images, clientData }: SelectionGalle
     <div className={isLocked ? 'locked-state' : ''}>
       {/* Header */}
       <div className="mb-8">
-        <h2 className="font-serif text-2xl text-charcoal-800 mb-2">
+        <h2 className="font-serif text-2xl text-sage-800 mb-2">
           Choose Your Favorites
         </h2>
-        <p className="text-charcoal-500">
+        <p className="text-sage-500">
           Select up to {project.package_limit} images from your session.
           Click on any image to add special notes or face-swap requests.
         </p>
         {isLocked && (
-          <div className="mt-4 bg-champagne-400/20 text-charcoal-700 px-4 py-3 rounded-xl text-sm">
+          <div className="mt-4 bg-champagne-400/20 text-sage-700 px-4 py-3 rounded-xl text-sm">
             Your selections have been submitted and are being processed.
           </div>
         )}

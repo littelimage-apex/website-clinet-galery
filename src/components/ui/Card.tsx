@@ -7,9 +7,9 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ className = '', variant = 'default', children, ...props }, ref) => {
     const variants = {
-      default: 'bg-white border border-lavender-100 shadow-soft',
+      default: 'bg-white border border-sage-100 shadow-soft',
       elevated: 'bg-white shadow-lifted',
-      outlined: 'bg-transparent border-2 border-lavender-200',
+      outlined: 'bg-transparent border-2 border-sage-200',
     }
 
     return (
@@ -40,8 +40,8 @@ const CardTitle = forwardRef<HTMLHeadingElement, HTMLAttributes<HTMLHeadingEleme
   ({ className = '', children, ...props }, ref) => (
     <h3
       ref={ref}
-      className={`text-xl font-semibold text-charcoal-800 font-serif ${className}`}
-      style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}
+      className={`text-xl font-semibold text-sage-800 font-serif ${className}`}
+      style={{ fontFamily: "var(--font-serif), Georgia, serif" }}
       {...props}
     >
       {children}
@@ -63,7 +63,7 @@ CardContent.displayName = 'CardContent'
 
 const CardFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className = '', children, ...props }, ref) => (
-    <div ref={ref} className={`mt-4 pt-4 border-t border-lavender-100 ${className}`} {...props}>
+    <div ref={ref} className={`mt-4 pt-4 border-t border-sage-100 ${className}`} {...props}>
       {children}
     </div>
   )

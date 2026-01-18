@@ -30,11 +30,11 @@ export default function PortfolioGrid() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <p className="font-script text-xl text-lavender-500 mb-2">Our Work</p>
-          <h2 className="font-serif text-4xl md:text-5xl text-charcoal-800 mb-4">
+          <p className="font-serif text-xl text-sage-500 mb-2">Our Work</p>
+          <h2 className="font-serif text-4xl md:text-5xl text-sage-800 mb-4">
             Portfolio
           </h2>
-          <p className="text-charcoal-500 max-w-2xl mx-auto">
+          <p className="text-sage-500 max-w-2xl mx-auto">
             Every image tells a story of love, wonder, and the magic of new life. Browse our collection of cherished moments.
           </p>
         </div>
@@ -47,7 +47,7 @@ export default function PortfolioGrid() {
               className="masonry-item animate-fade-in"
               style={{ animationDelay: `${index * 50}ms` }}
             >
-              <div className="relative group overflow-hidden rounded-2xl bg-lavender-100">
+              <div className="relative group overflow-hidden rounded-2xl bg-sage-100">
                 <Image
                   src={image.src}
                   alt={image.alt}
@@ -57,9 +57,9 @@ export default function PortfolioGrid() {
                   unoptimized
                 />
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-lavender-900/0 group-hover:bg-lavender-900/20 transition-all duration-400 rounded-2xl pointer-events-none" />
+                <div className="absolute inset-0 bg-sage-900/0 group-hover:bg-sage-900/20 transition-all duration-400 rounded-2xl pointer-events-none" />
                 {/* Image caption on hover */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-charcoal-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-400 rounded-b-2xl">
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-sage-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-400 rounded-b-2xl">
                   <p className="text-white text-sm font-medium">{image.alt}</p>
                 </div>
               </div>
