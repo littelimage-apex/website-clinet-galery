@@ -39,7 +39,6 @@ export default async function DashboardPage() {
   // Get user's first name for greeting
   const fullName = user.user_metadata?.full_name ||
     user.user_metadata?.name ||
-    user.email?.split('@')[0] ||
     'there'
   const firstName = fullName.split(' ')[0]
 

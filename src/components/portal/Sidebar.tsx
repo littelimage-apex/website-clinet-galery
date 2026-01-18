@@ -59,7 +59,7 @@ export function Sidebar({ sessions, userName, userEmail }: SidebarProps) {
                       }`}
                   >
                     <div className="flex items-start justify-between gap-2 mb-2">
-                      <span className={`font-medium truncate text-sm
+                      <span className={`font-medium text-sm line-clamp-2
                                        ${isActive ? 'text-sage-700' : 'text-sage-700'}`}>
                         {session.child_name || session.title}
                       </span>

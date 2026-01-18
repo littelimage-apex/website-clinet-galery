@@ -191,7 +191,7 @@ export function LightboxModal({
             {/* Bottom toolbar */}
             {showActions && (
                 <div className="absolute bottom-0 left-0 right-0 z-10 p-6">
-                    <div className="max-w-md mx-auto flex items-center justify-center gap-4 bg-white/10 backdrop-blur-md rounded-full px-6 py-3">
+                    <div className="max-w-md mx-auto flex items-center justify-center gap-4 bg-sage-800 rounded-full px-6 py-3 shadow-lg">
                         {/* Filename */}
                         <span className="text-white/80 text-sm truncate max-w-[200px]">
                             {currentImage.filename}
