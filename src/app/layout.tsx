@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Quicksand, Playfair_Display, Dancing_Script } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const quicksand = Quicksand({
@@ -38,6 +39,7 @@ export default function RootLayout({
         style={{ fontFamily: "var(--font-quicksand), system-ui, sans-serif" }}
       >
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
