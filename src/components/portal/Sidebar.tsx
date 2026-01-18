@@ -2,18 +2,18 @@
 
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { Project } from '@/types/database'
+import { SessionWithDetails } from '@/types/database'
 import { StageBadge } from './StageBadge'
 import { createClient } from '@/lib/supabase/client'
 import { Logo } from '@/components/ui/Logo'
 
 interface SidebarProps {
-  projects: Project[]
+  sessions: SessionWithDetails[]
   userName: string
   userEmail: string
 }
 
-export function Sidebar({ projects, userName, userEmail }: SidebarProps) {
+export function Sidebar({ sessions, userName, userEmail }: SidebarProps) {
   const pathname = usePathname()
   const router = useRouter()
   const supabase = createClient()
@@ -33,25 +33,25 @@ export function Sidebar({ projects, userName, userEmail }: SidebarProps) {
         </Link>
       </div>
 
-      {/* Projects List */}
+      {/* Sessions List */}
       <nav className="flex-1 overflow-y-auto p-4">
         <h2 className="text-xs font-semibold text-sage-400 uppercase tracking-wider mb-3 px-2">
           Your Sessions
         </h2>
         <ul className="space-y-1">
-          {projects.length === 0 ? (
+          {sessions.length === 0 ? (
             <li className="px-3 py-4 text-center">
               <p className="text-sage-400 text-sm">
                 No sessions yet
               </p>
             </li>
           ) : (
-            projects.map((project) => {
-              const isActive = pathname === `/project/${project.id}`
+            sessions.map((session) => {
+              const isActive = pathname === `/project/${session.id}`
               return (
-                <li key={project.id}>
+                <li key={session.id}>
                   <Link
-                    href={`/project/${project.id}`}
+                    href={`/project/${session.id}`}
                     className={`block px-3 py-3 rounded-xl transition-all duration-[400ms]
                               ${isActive
                         ? 'bg-white shadow-soft border border-sage-200'
@@ -61,15 +61,15 @@ export function Sidebar({ projects, userName, userEmail }: SidebarProps) {
                     <div className="flex items-start justify-between gap-2 mb-2">
                       <span className={`font-medium truncate text-sm
                                        ${isActive ? 'text-sage-700' : 'text-sage-700'}`}>
-                        {project.child_name || project.title}
+                        {session.child_name || session.title}
                       </span>
                     </div>
-                    {project.occasion && (
+                    {session.occasions?.name && (
                       <p className="text-xs text-sage-400 capitalize mb-2 truncate">
-                        {project.occasion}
+                        {session.occasions.name}
                       </p>
                     )}
-                    <StageBadge stage={project.current_stage} size="sm" />
+                    <StageBadge stage={session.current_stage || 1} size="sm" />
                   </Link>
                 </li>
               )

@@ -3,7 +3,7 @@ import { createClient } from '@/lib/supabase/server'
 import { SelectionGallery } from '@/components/gallery/SelectionGallery'
 import { ReviewGallery } from '@/components/gallery/ReviewGallery'
 import { DeliveryView } from '@/components/gallery/DeliveryView'
-import { Project, ClientData, ProjectAssets } from '@/types/database'
+import { Session, ClientData, ProjectAssets } from '@/types/database'
 
 interface ProjectPageProps {
   params: Promise<{ id: string }>
@@ -20,12 +20,21 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     redirect('/login')
   }
 
-  // Fetch project data
+  // Fetch project data from sessions
   const { data: project, error } = await supabase
-    .from('projects')
-    .select('*')
+    .from('sessions')
+    .select(`
+      *,
+      occasions (
+        name,
+        image_url
+      ),
+      clients!inner (
+        user_id
+      )
+    `)
     .eq('id', id)
-    .eq('user_id', user.id)
+    .eq('clients.user_id', user.id)
     .single()
 
   if (error || !project) {
@@ -72,9 +81,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <h1 className="font-serif text-2xl text-sage-800">
               {project.child_name || project.title}
             </h1>
-            {project.occasion && (
+            {project.occasions?.name && (
               <p className="text-sage-500 mt-1 capitalize">
-                {project.occasion} Session
+                {project.occasions.name} Session
               </p>
             )}
           </div>
@@ -91,7 +100,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <div className="p-8">
         {project.current_stage === 1 && (
           <SelectionGallery
-            project={project as Project}
+            project={project as Session}
             images={selectionImages}
             clientData={clientData}
           />
@@ -110,8 +119,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             currentStage={project.current_stage}
             finalUrl={assets.final_url}
             images={deliveryImages}
-            childName={project.child_name || undefined}
-            projectTitle={project.title}
+            childName={project.child_name ?? undefined}
+            projectTitle={project.title ?? undefined}
           />
         )}
       </div>

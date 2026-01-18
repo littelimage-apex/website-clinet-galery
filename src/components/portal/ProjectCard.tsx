@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import { Project } from '@/types/database'
+import { SessionWithDetails } from '@/types/database'
 import { StageBadge } from './StageBadge'
 
 interface ProjectCardProps {
-  project: Project
+  project: SessionWithDetails
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
@@ -30,13 +30,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
                          truncate">
             {project.child_name || project.title}
           </h3>
-          {project.occasion && (
+          {project.occasions?.name && (
             <p className="text-sage-500 text-sm mt-1 capitalize">
-              {project.occasion}
+              {project.occasions.name}
             </p>
           )}
         </div>
-        <StageBadge stage={project.current_stage} />
+        <StageBadge stage={project.current_stage || 1} />
       </div>
 
       <div className="flex items-center gap-2 text-sage-400 text-sm">
@@ -49,7 +49,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <div className="mt-4 pt-4 border-t border-sage-100">
         <div className="flex items-center justify-between">
           <span className="text-xs text-sage-400 uppercase tracking-wide">
-            {project.package_limit} photos in package
+            {project.package_limit || 0} photos in package
           </span>
           <span className="text-sage-500 group-hover:text-sage-600
                          text-sm font-medium flex items-center gap-1

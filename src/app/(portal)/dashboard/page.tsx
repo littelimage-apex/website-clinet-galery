@@ -17,15 +17,23 @@ export default async function DashboardPage() {
     redirect('/login')
   }
 
-  // Fetch user's projects
-  const { data: projects, error: projectsError } = await supabase
-    .from('projects')
-    .select('*')
-    .eq('user_id', user.id)
+  // Fetch user's sessions
+  const { data: sessions, error: sessionsError } = await supabase
+    .from('sessions')
+    .select(`
+      *,
+      occasions (
+        *
+      ),
+      clients!inner (
+        *
+      )
+    `)
+    .eq('clients.user_id', user.id)
     .order('session_date', { ascending: false })
 
-  if (projectsError) {
-    console.error('Error fetching projects:', projectsError)
+  if (sessionsError) {
+    console.error('Error fetching sessions:', sessionsError)
   }
 
   // Get user's first name for greeting
@@ -51,20 +59,20 @@ export default async function DashboardPage() {
         </p>
       </header>
 
-      {/* Projects Grid */}
-      {projects && projects.length > 0 ? (
+      {/* Sessions Grid */}
+      {sessions && sessions.length > 0 ? (
         <section>
           <h2 className="text-sm font-semibold text-sage-400 uppercase tracking-wider mb-6">
-            Your Sessions ({projects.length})
+            Your Sessions ({sessions.length})
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {projects.map((project, index) => (
+            {sessions.map((session, index) => (
               <div
-                key={project.id}
+                key={session.id}
                 className="animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <ProjectCard project={project} />
+                <ProjectCard project={session} />
               </div>
             ))}
           </div>

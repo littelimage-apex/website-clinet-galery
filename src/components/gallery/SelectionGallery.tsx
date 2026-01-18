@@ -1,12 +1,12 @@
 'use client'
 
 import { useState, useCallback } from 'react'
-import { Project, ClientData, SelectionItem } from '@/types/database'
+import { Session, ClientData, SelectionItem } from '@/types/database'
 import { ImageCard } from './ImageCard'
 import { ImageModal } from './ImageModal'
 import { SelectionCounter } from './SelectionCounter'
 import { Button } from '@/components/ui'
-import { submitSelection } from '@/lib/actions/projects'
+import { submitSelection } from '@/lib/actions/sessions'
 
 interface ImageData {
   filename: string
@@ -14,7 +14,7 @@ interface ImageData {
 }
 
 interface SelectionGalleryProps {
-  project: Project
+  project: Session
   images: ImageData[]
   clientData: ClientData
 }
@@ -29,7 +29,7 @@ export function SelectionGallery({ project, images, clientData }: SelectionGalle
 
   const isLocked = project.status === 'submitted' || project.status === 'editing'
   const selectedCount = selections.size
-  const canSelectMore = selectedCount < project.package_limit
+  const canSelectMore = selectedCount < (project.package_limit || 0)
 
   const toggleSelection = useCallback((filename: string) => {
     if (isLocked) return
@@ -115,7 +115,7 @@ export function SelectionGallery({ project, images, clientData }: SelectionGalle
           Choose Your Favorites
         </h2>
         <p className="text-sage-500">
-          Select up to {project.package_limit} images from your session.
+          Select up to {project.package_limit || 0} images from your session.
           Click on any image to add special notes or face-swap requests.
         </p>
         {isLocked && (
@@ -148,7 +148,7 @@ export function SelectionGallery({ project, images, clientData }: SelectionGalle
       {/* Selection Counter */}
       <SelectionCounter
         selected={selectedCount}
-        limit={project.package_limit}
+        limit={project.package_limit || 0}
       />
 
       {/* Submit Button */}
