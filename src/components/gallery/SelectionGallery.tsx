@@ -4,6 +4,7 @@ import { useState, useCallback } from 'react'
 import { Session, ClientData, SelectionItem } from '@/types/database'
 import { ImageCard } from './ImageCard'
 import { ImageModal } from './ImageModal'
+import { LightboxModal } from './LightboxModal'
 import { SelectionCounter } from './SelectionCounter'
 import { Button } from '@/components/ui'
 import { submitSelection } from '@/lib/actions/sessions'
@@ -23,6 +24,7 @@ export function SelectionGallery({ project, images, clientData }: SelectionGalle
   const [selections, setSelections] = useState<Map<string, SelectionItem>>(
     new Map(clientData.selection_manifest.map(item => [item.filename, item]))
   )
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
   const [modalImage, setModalImage] = useState<ImageData | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
@@ -87,6 +89,22 @@ export function SelectionGallery({ project, images, clientData }: SelectionGalle
     }
   }
 
+  // Lightbox handlers
+  const currentLightboxImage = lightboxIndex !== null ? images[lightboxIndex] : null
+
+  const handleLightboxSelect = () => {
+    if (currentLightboxImage) {
+      toggleSelection(currentLightboxImage.filename)
+    }
+  }
+
+  const handleLightboxComment = () => {
+    if (currentLightboxImage) {
+      setLightboxIndex(null)
+      setModalImage(currentLightboxImage)
+    }
+  }
+
   if (submitSuccess) {
     return (
       <div className="flex flex-col items-center justify-center py-20 animate-fade-in">
@@ -116,7 +134,7 @@ export function SelectionGallery({ project, images, clientData }: SelectionGalle
         </h2>
         <p className="text-sage-500">
           Select up to {project.package_limit || 0} images from your session.
-          Click on any image to add special notes or face-swap requests.
+          Click on any image to view it full-screen, then use the toolbar to select or add notes.
         </p>
         {isLocked && (
           <div className="mt-4 bg-champagne-400/20 text-sage-700 px-4 py-3 rounded-xl text-sm">
@@ -125,8 +143,8 @@ export function SelectionGallery({ project, images, clientData }: SelectionGalle
         )}
       </div>
 
-      {/* Image Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {/* Image Grid - Larger images with fewer columns */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {images.map((image, index) => (
           <div
             key={image.filename}
@@ -138,7 +156,7 @@ export function SelectionGallery({ project, images, clientData }: SelectionGalle
               filename={image.filename}
               isSelected={selections.has(image.filename)}
               onSelect={() => toggleSelection(image.filename)}
-              onClick={() => setModalImage(image)}
+              onClick={() => setLightboxIndex(index)}
               disabled={isLocked || (!selections.has(image.filename) && !canSelectMore)}
             />
           </div>
@@ -165,7 +183,20 @@ export function SelectionGallery({ project, images, clientData }: SelectionGalle
         </div>
       )}
 
-      {/* Image Modal */}
+      {/* Lightbox Modal - Full-screen viewing */}
+      <LightboxModal
+        isOpen={lightboxIndex !== null}
+        images={images}
+        currentIndex={lightboxIndex ?? 0}
+        onClose={() => setLightboxIndex(null)}
+        onNavigate={setLightboxIndex}
+        onSelect={handleLightboxSelect}
+        isSelected={currentLightboxImage ? selections.has(currentLightboxImage.filename) : false}
+        onComment={handleLightboxComment}
+        disableSelect={isLocked || (!canSelectMore && !(currentLightboxImage && selections.has(currentLightboxImage.filename)))}
+      />
+
+      {/* Image Modal - For adding notes/details */}
       {modalImage && (
         <ImageModal
           isOpen={true}

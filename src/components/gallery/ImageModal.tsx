@@ -70,7 +70,7 @@ export function ImageModal({
       {/* Modal */}
       <div className="relative bg-white rounded-2xl shadow-lifted max-w-5xl w-full max-h-[90vh] overflow-hidden animate-fade-in flex">
         {/* Image side */}
-        <div className="relative w-3/5 bg-sage-100">
+        <div className="relative w-2/3 bg-sage-100">
           <div className="relative aspect-[4/5] h-full">
             <Image
               src={image.url}
@@ -88,7 +88,7 @@ export function ImageModal({
         </div>
 
         {/* Details side */}
-        <div className="w-2/5 p-6 flex flex-col">
+        <div className="w-1/3 p-6 flex flex-col">
           {/* Close button */}
           <button
             onClick={onClose}

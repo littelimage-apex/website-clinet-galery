@@ -25,7 +25,7 @@ export function Sidebar({ sessions, userName, userEmail }: SidebarProps) {
   }
 
   return (
-    <aside className="w-72 h-screen bg-cream-50/90 backdrop-blur-md border-r border-sage-200/60 flex flex-col fixed left-0 top-0 z-50 shadow-soft">
+    <aside className="w-64 h-screen bg-cream-50/90 backdrop-blur-md border-r border-sage-200/60 flex flex-col fixed left-0 top-0 z-50 shadow-soft">
       {/* Logo */}
       <div className="p-6 border-b border-sage-100">
         <Link href="/dashboard" className="block relative">
@@ -59,7 +59,7 @@ export function Sidebar({ sessions, userName, userEmail }: SidebarProps) {
                       }`}
                   >
                     <div className="flex items-start justify-between gap-2 mb-2">
-                      <span className={`font-medium truncate text-sm
+                      <span className={`font-medium text-sm line-clamp-2
                                        ${isActive ? 'text-sage-700' : 'text-sage-700'}`}>
                         {session.child_name || session.title}
                       </span>

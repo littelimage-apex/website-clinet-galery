@@ -23,20 +23,22 @@ export function ProjectCard({ project }: ProjectCardProps) {
                  shadow-soft hover:shadow-lifted transition-all duration-[400ms]
                  hover:-translate-y-1"
     >
-      <div className="flex items-start justify-between gap-4 mb-4">
-        <div className="flex-1 min-w-0">
-          <h3 className="font-serif text-2xl font-medium text-sage-800 tracking-tight
-                         group-hover:text-sage-700 transition-colors duration-[400ms]
-                         truncate">
-            {project.child_name || project.title}
-          </h3>
-          {project.occasions?.name && (
-            <p className="text-sage-500 text-sm mt-1 capitalize">
-              {project.occasions.name}
-            </p>
-          )}
-        </div>
+      {/* Stage badge on its own row */}
+      <div className="mb-3">
         <StageBadge stage={project.current_stage || 1} />
+      </div>
+
+      {/* Title and occasion */}
+      <div className="mb-4">
+        <h3 className="font-serif text-2xl font-medium text-sage-800 tracking-tight
+                       group-hover:text-sage-700 transition-colors duration-[400ms]">
+          {project.child_name || project.title}
+        </h3>
+        {project.occasions?.name && (
+          <p className="text-sage-500 text-sm mt-1 capitalize whitespace-nowrap">
+            {project.occasions.name}
+          </p>
+        )}
       </div>
 
       <div className="flex items-center gap-2 text-sage-400 text-sm">
