@@ -44,7 +44,7 @@ export default async function PortalLayout({
         userName={userName}
         userEmail={user.email || ''}
       />
-      <main className="ml-72 min-h-screen">
+      <main className="ml-64 min-h-screen">
         {children}
       </main>
     </div>

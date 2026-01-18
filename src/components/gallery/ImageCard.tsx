@@ -61,7 +61,7 @@ export function ImageCard({
           opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms]
         `}>
           <span className="bg-white/90 text-sage-700 px-3 py-1.5 rounded-full text-xs font-medium shadow-soft">
-            Click to add notes
+            Click to view
           </span>
         </div>
       </div>

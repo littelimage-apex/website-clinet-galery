@@ -4,6 +4,7 @@ import { useState, useCallback, useTransition } from 'react'
 import Image from 'next/image'
 import { RevisionItem, ProjectAssets, ClientData } from '@/types/database'
 import { ReviewModal } from './ReviewModal'
+import { LightboxModal } from './LightboxModal'
 import { StatusBadge } from './RevisionThread'
 import { approveAllImages } from '@/lib/actions/reviews'
 
@@ -52,6 +53,7 @@ export function ReviewGallery({
   clientData,
   onStageComplete
 }: ReviewGalleryProps) {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
   const [selectedImage, setSelectedImage] = useState<ReviewImage | null>(null)
   const [isPending, startTransition] = useTransition()
   const [refreshKey, setRefreshKey] = useState(0)
@@ -113,7 +115,7 @@ export function ReviewGallery({
         <div>
           <h2 className="font-serif text-2xl text-sage-800">Review Your Edits</h2>
           <p className="text-sm text-sage-500 mt-1">
-            Click on any image to review and provide feedback
+            Click on any image to view full-screen, then use the toolbar to approve or request changes
           </p>
         </div>
 
@@ -172,17 +174,33 @@ export function ReviewGallery({
         />
       </div>
 
-      {/* Image grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      {/* Image grid - Larger images with fewer columns */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {images.map((image, index) => (
           <ImageCard
             key={image.filename}
             image={image}
-            onClick={() => setSelectedImage(image)}
+            onClick={() => setLightboxIndex(index)}
             index={index}
           />
         ))}
       </div>
+
+      {/* Lightbox Modal - Full-screen viewing */}
+      <LightboxModal
+        isOpen={lightboxIndex !== null}
+        images={images.map(img => ({ filename: img.filename, url: img.url }))}
+        currentIndex={lightboxIndex ?? 0}
+        onClose={() => setLightboxIndex(null)}
+        onNavigate={setLightboxIndex}
+        onComment={() => {
+          if (lightboxIndex !== null) {
+            setSelectedImage(images[lightboxIndex])
+            setLightboxIndex(null)
+          }
+        }}
+        showActions={true}
+      />
 
       {/* Review modal */}
       {selectedImage && (
