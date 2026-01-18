@@ -1,0 +1,45 @@
+{
+    "meta": {
+        "brand_name": "Little Image Photography",
+        "description": "Core design tokens for UI implementation. Theme: Cozy & Comfort."
+    },
+    "colors": {
+        "primary": {
+            "DEFAULT": "#94A396",
+            "description": "Sage Green - Primary action color. Growth, nature, calm.",
+            "foreground": "#FDFCFB"
+        },
+        "secondary": {
+            "DEFAULT": "#D4A39A",
+            "description": "Muted Rose - The 'Heart' color. Accents and emotional callouts.",
+            "foreground": "#6B5E51"
+        },
+        "background": "#F5F2ED",
+        "description_background": "Oatmeal - Main background. Warm, tactile.",
+        "foreground": "#6B5E51",
+        "description_foreground": "Clay Brown - Text color. Grounded.",
+        "muted": "#F5F2ED",
+        "card_background": "#FDFCFB",
+        "description_card": "Cream - Elevated surfaces (Cards and Modals).",
+        "accent": "#D4A39A"
+    },
+    "typography": {
+        "font_family_headings": [
+            "Solway",
+            "serif"
+        ],
+        "font_family_body": [
+            "Nunito",
+            "sans-serif"
+        ],
+        "font_weight_bold": "700",
+        "font_weight_normal": "400",
+        "font_weight_heading_default": "500"
+    },
+    "ui": {
+        "border_radius_card": "1.25rem",
+        "border_radius_button": "50px",
+        "border_radius_default": "1.25rem",
+        "spacing_base_unit": "4px"
+    }
+}
