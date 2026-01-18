@@ -81,7 +81,7 @@ export function ReviewGallery({
 
   if (images.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center py-16 text-charcoal-400">
+      <div className="flex flex-col items-center justify-center py-16 text-sage-400">
         <svg
           className="w-20 h-20 mb-4 opacity-50"
           fill="none"
@@ -95,10 +95,10 @@ export function ReviewGallery({
             d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
           />
         </svg>
-        <h3 className="text-lg font-medium text-charcoal-600 mb-2">
+        <h3 className="text-lg font-medium text-sage-600 mb-2">
           No edited images yet
         </h3>
-        <p className="text-sm text-charcoal-400 max-w-md text-center">
+        <p className="text-sm text-sage-400 max-w-md text-center">
           Your photographer is working on your selected images. Check back soon to
           review the edited versions.
         </p>
@@ -109,10 +109,10 @@ export function ReviewGallery({
   return (
     <div className="space-y-6" key={refreshKey}>
       {/* Header with progress and approve all */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4 border-b border-lavender-100">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4 border-b border-sage-100">
         <div>
-          <h2 className="font-serif text-2xl text-charcoal-800">Review Your Edits</h2>
-          <p className="text-sm text-charcoal-500 mt-1">
+          <h2 className="font-serif text-2xl text-sage-800">Review Your Edits</h2>
+          <p className="text-sm text-sage-500 mt-1">
             Click on any image to review and provide feedback
           </p>
         </div>
@@ -120,11 +120,11 @@ export function ReviewGallery({
         <div className="flex items-center gap-4">
           {/* Progress indicator */}
           <div className="flex items-center gap-2 text-sm">
-            <span className="text-charcoal-500">Progress:</span>
+            <span className="text-sage-500">Progress:</span>
             <span className="font-medium text-[var(--sage-500)]">
               {approvedCount} / {totalCount}
             </span>
-            <span className="text-charcoal-400">approved</span>
+            <span className="text-sage-400">approved</span>
           </div>
 
           {/* Approve all button */}
@@ -137,7 +137,7 @@ export function ReviewGallery({
               flex items-center gap-2
               ${allApproved
                 ? 'bg-[var(--sage-400)] text-white hover:bg-[var(--sage-500)] shadow-soft'
-                : 'bg-charcoal-100 text-charcoal-400 cursor-not-allowed'}
+                : 'bg-sage-100 text-sage-400 cursor-not-allowed'}
             `}
           >
             {isPending ? (
@@ -165,7 +165,7 @@ export function ReviewGallery({
       </div>
 
       {/* Progress bar */}
-      <div className="w-full h-2 bg-lavender-100 rounded-full overflow-hidden">
+      <div className="w-full h-2 bg-sage-100 rounded-full overflow-hidden">
         <div
           className="h-full bg-[var(--sage-400)] rounded-full transition-all duration-[400ms]"
           style={{ width: `${(approvedCount / totalCount) * 100}%` }}
@@ -218,10 +218,10 @@ function ImageCard({ image, onClick, index }: ImageCardProps) {
       onMouseLeave={() => setIsHovered(false)}
       className="
         group relative aspect-[4/5] rounded-xl overflow-hidden
-        bg-cream-100 border border-lavender-100
+        bg-cream-100 border border-sage-100
         transition-all duration-[400ms]
         hover:shadow-lifted hover:scale-[1.02]
-        focus:outline-none focus-visible:ring-2 focus-visible:ring-lavender-400
+        focus:outline-none focus-visible:ring-2 focus-visible:ring-sage-400
       "
       style={{
         animation: `fadeIn 400ms ease-out ${index * 50}ms forwards`,
@@ -239,7 +239,7 @@ function ImageCard({ image, onClick, index }: ImageCardProps) {
       {/* Overlay gradient */}
       <div
         className={`
-          absolute inset-0 bg-gradient-to-t from-charcoal-900/60 via-transparent to-transparent
+          absolute inset-0 bg-gradient-to-t from-sage-900/60 via-transparent to-transparent
           transition-opacity duration-[400ms]
           ${isHovered ? 'opacity-100' : 'opacity-70'}
         `}
@@ -252,7 +252,7 @@ function ImageCard({ image, onClick, index }: ImageCardProps) {
 
       {/* Version indicator */}
       <div className="absolute top-3 left-3">
-        <span className="px-2 py-1 rounded-lg text-xs font-medium bg-white/90 text-charcoal-700">
+        <span className="px-2 py-1 rounded-lg text-xs font-medium bg-white/90 text-sage-700">
           v{image.version}
         </span>
       </div>
@@ -281,12 +281,12 @@ function ImageCard({ image, onClick, index }: ImageCardProps) {
       {/* Hover overlay - click to review */}
       <div
         className={`
-          absolute inset-0 bg-lavender-500/20 flex items-center justify-center
+          absolute inset-0 bg-sage-500/20 flex items-center justify-center
           transition-opacity duration-[400ms]
           ${isHovered ? 'opacity-100' : 'opacity-0'}
         `}
       >
-        <span className="px-4 py-2 rounded-full bg-white text-lavender-700 font-medium text-sm shadow-soft">
+        <span className="px-4 py-2 rounded-full bg-white text-sage-700 font-medium text-sm shadow-soft">
           Click to Review
         </span>
       </div>

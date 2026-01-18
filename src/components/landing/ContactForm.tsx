@@ -50,11 +50,11 @@ export default function ContactForm() {
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <p className="font-script text-xl text-lavender-500 mb-2">Get in Touch</p>
-          <h2 className="font-serif text-4xl md:text-5xl text-charcoal-800 mb-4">
+          <p className="font-serif text-xl text-sage-500 mb-2">Get in Touch</p>
+          <h2 className="font-serif text-4xl md:text-5xl text-sage-800 mb-4">
             Book Your Session
           </h2>
-          <p className="text-charcoal-500 max-w-2xl mx-auto">
+          <p className="text-sage-500 max-w-2xl mx-auto">
             Ready to capture your family&apos;s precious moments? Fill out the form below and we&apos;ll be in touch within 24 hours.
           </p>
         </div>
@@ -68,8 +68,8 @@ export default function ContactForm() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="font-serif text-2xl text-charcoal-800 mb-2">Thank You!</h3>
-              <p className="text-charcoal-500">
+              <h3 className="font-serif text-2xl text-sage-800 mb-2">Thank You!</h3>
+              <p className="text-sage-500">
                 Your message has been sent. We&apos;ll be in touch soon to discuss your session.
               </p>
             </div>
@@ -78,7 +78,7 @@ export default function ContactForm() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Name */}
                 <div>
-                  <label htmlFor="name" className="block text-charcoal-700 font-medium mb-2">
+                  <label htmlFor="name" className="block text-sage-700 font-medium mb-2">
                     Your Name
                   </label>
                   <input
@@ -88,14 +88,14 @@ export default function ContactForm() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-2xl border border-lavender-200 bg-white focus:border-lavender-400 focus:ring-2 focus:ring-lavender-200 transition-all duration-400 outline-none"
+                    className="w-full px-4 py-3 rounded-2xl border border-sage-200 bg-white focus:border-sage-400 focus:ring-2 focus:ring-sage-200 transition-all duration-400 outline-none"
                     placeholder="Jane Smith"
                   />
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label htmlFor="email" className="block text-charcoal-700 font-medium mb-2">
+                  <label htmlFor="email" className="block text-sage-700 font-medium mb-2">
                     Email Address
                   </label>
                   <input
@@ -105,14 +105,14 @@ export default function ContactForm() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-2xl border border-lavender-200 bg-white focus:border-lavender-400 focus:ring-2 focus:ring-lavender-200 transition-all duration-400 outline-none"
+                    className="w-full px-4 py-3 rounded-2xl border border-sage-200 bg-white focus:border-sage-400 focus:ring-2 focus:ring-sage-200 transition-all duration-400 outline-none"
                     placeholder="jane@example.com"
                   />
                 </div>
 
                 {/* Phone */}
                 <div>
-                  <label htmlFor="phone" className="block text-charcoal-700 font-medium mb-2">
+                  <label htmlFor="phone" className="block text-sage-700 font-medium mb-2">
                     Phone Number
                   </label>
                   <input
@@ -121,14 +121,14 @@ export default function ContactForm() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-2xl border border-lavender-200 bg-white focus:border-lavender-400 focus:ring-2 focus:ring-lavender-200 transition-all duration-400 outline-none"
+                    className="w-full px-4 py-3 rounded-2xl border border-sage-200 bg-white focus:border-sage-400 focus:ring-2 focus:ring-sage-200 transition-all duration-400 outline-none"
                     placeholder="(555) 123-4567"
                   />
                 </div>
 
                 {/* Session Type */}
                 <div>
-                  <label htmlFor="sessionType" className="block text-charcoal-700 font-medium mb-2">
+                  <label htmlFor="sessionType" className="block text-sage-700 font-medium mb-2">
                     Session Type
                   </label>
                   <select
@@ -137,7 +137,7 @@ export default function ContactForm() {
                     value={formData.sessionType}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-2xl border border-lavender-200 bg-white focus:border-lavender-400 focus:ring-2 focus:ring-lavender-200 transition-all duration-400 outline-none appearance-none cursor-pointer"
+                    className="w-full px-4 py-3 rounded-2xl border border-sage-200 bg-white focus:border-sage-400 focus:ring-2 focus:ring-sage-200 transition-all duration-400 outline-none appearance-none cursor-pointer"
                   >
                     <option value="">Select a session type</option>
                     <option value="newborn">Newborn Session</option>
@@ -152,7 +152,7 @@ export default function ContactForm() {
 
               {/* Due Date / Session Date */}
               <div>
-                <label htmlFor="dueDate" className="block text-charcoal-700 font-medium mb-2">
+                <label htmlFor="dueDate" className="block text-sage-700 font-medium mb-2">
                   Expected Due Date or Preferred Session Date
                 </label>
                 <input
@@ -161,13 +161,13 @@ export default function ContactForm() {
                   name="dueDate"
                   value={formData.dueDate}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-2xl border border-lavender-200 bg-white focus:border-lavender-400 focus:ring-2 focus:ring-lavender-200 transition-all duration-400 outline-none"
+                  className="w-full px-4 py-3 rounded-2xl border border-sage-200 bg-white focus:border-sage-400 focus:ring-2 focus:ring-sage-200 transition-all duration-400 outline-none"
                 />
               </div>
 
               {/* Message */}
               <div>
-                <label htmlFor="message" className="block text-charcoal-700 font-medium mb-2">
+                <label htmlFor="message" className="block text-sage-700 font-medium mb-2">
                   Tell Us About Your Vision
                 </label>
                 <textarea
@@ -176,7 +176,7 @@ export default function ContactForm() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={5}
-                  className="w-full px-4 py-3 rounded-2xl border border-lavender-200 bg-white focus:border-lavender-400 focus:ring-2 focus:ring-lavender-200 transition-all duration-400 outline-none resize-none"
+                  className="w-full px-4 py-3 rounded-2xl border border-sage-200 bg-white focus:border-sage-400 focus:ring-2 focus:ring-sage-200 transition-all duration-400 outline-none resize-none"
                   placeholder="Share any details about your session preferences, special requests, or questions..."
                 />
               </div>
@@ -219,34 +219,34 @@ export default function ContactForm() {
         {/* Contact Info */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
           <div className="p-6">
-            <div className="w-12 h-12 bg-lavender-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg className="w-6 h-6 text-lavender-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-12 h-12 bg-sage-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-6 h-6 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </div>
-            <h4 className="font-serif text-lg text-charcoal-800 mb-1">Email</h4>
-            <p className="text-charcoal-500">hello@littleimagephoto.com</p>
+            <h4 className="font-serif text-lg text-sage-800 mb-1">Email</h4>
+            <p className="text-sage-500">hello@littleimagephoto.com</p>
           </div>
 
           <div className="p-6">
-            <div className="w-12 h-12 bg-lavender-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg className="w-6 h-6 text-lavender-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-12 h-12 bg-sage-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-6 h-6 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
             </div>
-            <h4 className="font-serif text-lg text-charcoal-800 mb-1">Phone</h4>
-            <p className="text-charcoal-500">(555) 123-4567</p>
+            <h4 className="font-serif text-lg text-sage-800 mb-1">Phone</h4>
+            <p className="text-sage-500">(555) 123-4567</p>
           </div>
 
           <div className="p-6">
-            <div className="w-12 h-12 bg-lavender-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg className="w-6 h-6 text-lavender-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-12 h-12 bg-sage-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-6 h-6 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
-            <h4 className="font-serif text-lg text-charcoal-800 mb-1">Studio</h4>
-            <p className="text-charcoal-500">Portland, Oregon</p>
+            <h4 className="font-serif text-lg text-sage-800 mb-1">Studio</h4>
+            <p className="text-sage-500">Portland, Oregon</p>
           </div>
         </div>
       </div>

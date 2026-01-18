@@ -68,7 +68,7 @@ export function RevisionThread({ revisions, filename }: RevisionThreadProps) {
 
   if (messages.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center py-8 text-charcoal-400">
+      <div className="flex flex-col items-center justify-center py-8 text-sage-400">
         <svg className="w-12 h-12 mb-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
         </svg>
@@ -92,18 +92,18 @@ export function RevisionThread({ revisions, filename }: RevisionThreadProps) {
             className={`
               max-w-[85%] rounded-2xl px-4 py-3 transition-all duration-[400ms]
               ${message.sender === 'client'
-                ? 'bg-lavender-100 text-lavender-800 rounded-br-md'
-                : 'bg-cream-200 text-charcoal-700 rounded-bl-md'}
+                ? 'bg-sage-100 text-sage-800 rounded-br-md'
+                : 'bg-cream-200 text-sage-700 rounded-bl-md'}
             `}
           >
             {/* Sender label */}
             <div className={`
               text-xs font-medium mb-1
-              ${message.sender === 'client' ? 'text-lavender-600' : 'text-charcoal-500'}
+              ${message.sender === 'client' ? 'text-sage-600' : 'text-sage-500'}
             `}>
               {message.sender === 'client' ? 'You' : 'Editor'}
               {message.sender === 'editor' && (
-                <span className="ml-2 px-1.5 py-0.5 rounded text-[10px] bg-charcoal-100 text-charcoal-500">
+                <span className="ml-2 px-1.5 py-0.5 rounded text-[10px] bg-sage-100 text-sage-500">
                   v{message.version}
                 </span>
               )}
@@ -122,7 +122,7 @@ export function RevisionThread({ revisions, filename }: RevisionThreadProps) {
             {/* Timestamp */}
             <div className={`
               text-[10px] mt-2
-              ${message.sender === 'client' ? 'text-lavender-400' : 'text-charcoal-400'}
+              ${message.sender === 'client' ? 'text-sage-400' : 'text-sage-400'}
             `}>
               {formatTimestamp(message.timestamp)}
             </div>
@@ -141,7 +141,7 @@ function StatusBadge({ status }: StatusBadgeProps) {
   const statusConfig = {
     pending: {
       bg: 'bg-[var(--champagne-400)]',
-      text: 'text-charcoal-700',
+      text: 'text-sage-700',
       label: 'Pending Review'
     },
     approved: {

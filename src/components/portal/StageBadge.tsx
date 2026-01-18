@@ -16,8 +16,8 @@ export function StageBadge({ stage, size = 'md' }: StageBadgeProps) {
   }
 
   const stageClasses = {
-    1: 'bg-lavender-100 text-lavender-700 border border-lavender-200',
-    2: 'bg-[var(--champagne-400)] text-charcoal-800 border border-[var(--champagne-500)]',
+    1: 'bg-sage-100 text-sage-700 border border-sage-200',
+    2: 'bg-[var(--champagne-400)] text-sage-800 border border-[var(--champagne-500)]',
     3: 'bg-[var(--sage-400)] text-white border border-[var(--sage-500)]'
   }
 

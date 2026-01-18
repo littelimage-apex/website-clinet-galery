@@ -40,7 +40,7 @@ export function Celebration({ childName, className = '' }: CelebrationProps) {
 
       {/* Main heading */}
       <h1
-        className="font-serif text-4xl md:text-5xl lg:text-6xl text-charcoal-800 mb-3 tracking-tight"
+        className="font-serif text-4xl md:text-5xl lg:text-6xl text-sage-800 mb-3 tracking-tight"
         style={{ fontFamily: 'var(--font-serif)' }}
       >
         Ready to Cherish
@@ -49,8 +49,8 @@ export function Celebration({ childName, className = '' }: CelebrationProps) {
       {/* Personalized subtitle */}
       {childName && (
         <p
-          className="font-script text-2xl md:text-3xl text-[var(--lavender-500)] mb-6"
-          style={{ fontFamily: 'var(--font-script)' }}
+          className="font-serif text-2xl md:text-3xl text-[var(--sage-500)] mb-6"
+          style={{ fontFamily: 'var(--font-serif)' }}
         >
           {childName}&apos;s precious moments
         </p>
@@ -62,10 +62,10 @@ export function Celebration({ childName, className = '' }: CelebrationProps) {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`}
       >
-        <p className="text-charcoal-600 text-lg leading-relaxed mb-2">
+        <p className="text-sage-600 text-lg leading-relaxed mb-2">
           Your beautiful memories are ready to download and treasure forever.
         </p>
-        <p className="text-charcoal-500 text-base">
+        <p className="text-sage-500 text-base">
           Thank you for trusting us to capture these special moments.
         </p>
       </div>
@@ -76,9 +76,9 @@ export function Celebration({ childName, className = '' }: CelebrationProps) {
           isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
         }`}
       >
-        <div className="h-px w-16 bg-gradient-to-r from-transparent to-[var(--lavender-300)]" />
+        <div className="h-px w-16 bg-gradient-to-r from-transparent to-[var(--sage-300)]" />
         <Heart className="w-4 h-4 text-[var(--sage-400)] fill-[var(--sage-400)]" />
-        <div className="h-px w-16 bg-gradient-to-l from-transparent to-[var(--lavender-300)]" />
+        <div className="h-px w-16 bg-gradient-to-l from-transparent to-[var(--sage-300)]" />
       </div>
     </div>
   )

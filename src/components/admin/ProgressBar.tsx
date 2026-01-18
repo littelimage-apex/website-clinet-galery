@@ -22,14 +22,14 @@ export function ProgressBar({
   return (
     <div className="flex items-center gap-2">
       <div
-        className={`relative flex-1 min-w-[80px] ${heightClass} bg-lavender-100 rounded-full overflow-hidden`}
+        className={`relative flex-1 min-w-[80px] ${heightClass} bg-sage-100 rounded-full overflow-hidden`}
       >
         {/* Progress fill */}
         <div
           className={`absolute inset-y-0 left-0 rounded-full transition-all duration-500 ease-out ${
             isComplete
               ? 'bg-[var(--sage-400)]'
-              : 'bg-lavender-400'
+              : 'bg-sage-400'
           }`}
           style={{ width: `${percentage}%` }}
         />
@@ -37,7 +37,7 @@ export function ProgressBar({
         {/* Text overlay */}
         {showText && (
           <div className={`absolute inset-0 flex items-center justify-center ${textClass} font-medium`}>
-            <span className={percentage > 50 ? 'text-white' : 'text-charcoal-700'}>
+            <span className={percentage > 50 ? 'text-white' : 'text-sage-700'}>
               {current} of {total}
             </span>
           </div>

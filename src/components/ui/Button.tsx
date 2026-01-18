@@ -13,15 +13,15 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const baseStyles = `
       inline-flex items-center justify-center font-medium rounded-full
       transition-all duration-300 ease-out
-      focus:outline-none focus-visible:ring-2 focus-visible:ring-lavender-400 focus-visible:ring-offset-2
+      focus:outline-none focus-visible:ring-2 focus-visible:ring-sage-400 focus-visible:ring-offset-2
       disabled:opacity-50 disabled:cursor-not-allowed
     `
 
     const variants = {
-      primary: 'bg-lavender-500 text-white hover:bg-lavender-600 hover:-translate-y-0.5 shadow-soft hover:shadow-lifted',
-      secondary: 'bg-lavender-100 text-lavender-700 hover:bg-lavender-200',
-      outline: 'border-2 border-lavender-300 text-lavender-700 hover:bg-lavender-50',
-      ghost: 'text-lavender-600 hover:bg-lavender-50',
+      primary: 'bg-sage-500 text-white hover:bg-sage-600 hover:-translate-y-0.5 shadow-soft hover:shadow-lifted',
+      secondary: 'bg-sage-100 text-sage-700 hover:bg-sage-200',
+      outline: 'border-2 border-sage-300 text-sage-700 hover:bg-sage-50',
+      ghost: 'text-sage-600 hover:bg-sage-50',
       sage: 'bg-sage text-white hover:opacity-90 hover:-translate-y-0.5 shadow-soft hover:shadow-lifted',
     }
 

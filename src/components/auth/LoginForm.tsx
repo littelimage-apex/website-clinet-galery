@@ -51,7 +51,7 @@ export default function LoginForm() {
       <div>
         <label
           htmlFor="email"
-          className="block text-sm font-medium text-charcoal-700 mb-2"
+          className="block text-sm font-medium text-sage-700 mb-2"
         >
           Email Address
         </label>
@@ -62,9 +62,9 @@ export default function LoginForm() {
           onChange={(e) => setEmail(e.target.value)}
           required
           autoComplete="email"
-          className="w-full px-4 py-3 rounded-xl border border-lavender-200 bg-white
-                     text-charcoal-800 placeholder-charcoal-400
-                     focus:outline-none focus:ring-2 focus:ring-lavender-300 focus:border-transparent
+          className="w-full px-4 py-3 rounded-xl border border-sage-200 bg-white
+                     text-sage-800 placeholder-sage-400
+                     focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-transparent
                      transition-all duration-300"
           placeholder="your@email.com"
           disabled={isLoading}
@@ -75,7 +75,7 @@ export default function LoginForm() {
       <div>
         <label
           htmlFor="password"
-          className="block text-sm font-medium text-charcoal-700 mb-2"
+          className="block text-sm font-medium text-sage-700 mb-2"
         >
           Password
         </label>
@@ -86,9 +86,9 @@ export default function LoginForm() {
           onChange={(e) => setPassword(e.target.value)}
           required
           autoComplete="current-password"
-          className="w-full px-4 py-3 rounded-xl border border-lavender-200 bg-white
-                     text-charcoal-800 placeholder-charcoal-400
-                     focus:outline-none focus:ring-2 focus:ring-lavender-300 focus:border-transparent
+          className="w-full px-4 py-3 rounded-xl border border-sage-200 bg-white
+                     text-sage-800 placeholder-sage-400
+                     focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-transparent
                      transition-all duration-300"
           placeholder="Enter your password"
           disabled={isLoading}
@@ -99,12 +99,12 @@ export default function LoginForm() {
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full py-3 px-4 bg-lavender-500 hover:bg-lavender-600
+        className="w-full py-3 px-4 bg-sage-500 hover:bg-sage-600
                    text-white font-medium rounded-full
                    transition-all duration-300
                    hover:shadow-lifted hover:-translate-y-0.5
                    disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none
-                   focus:outline-none focus:ring-2 focus:ring-lavender-400 focus:ring-offset-2"
+                   focus:outline-none focus:ring-2 focus:ring-sage-400 focus:ring-offset-2"
       >
         {isLoading ? (
           <span className="flex items-center justify-center gap-2">

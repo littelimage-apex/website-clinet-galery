@@ -22,15 +22,15 @@ export function StatsCards({
       label: 'Active Projects',
       value: totalActive,
       icon: FolderOpen,
-      color: 'bg-lavender-100 text-lavender-600',
-      borderColor: 'border-lavender-200',
+      color: 'bg-sage-100 text-sage-600',
+      borderColor: 'border-sage-200',
     },
     {
       label: 'Choosing Favorites',
       value: inSelection,
       icon: Heart,
-      color: 'bg-lavender-50 text-lavender-500',
-      borderColor: 'border-lavender-100',
+      color: 'bg-sage-50 text-sage-500',
+      borderColor: 'border-sage-100',
       subtitle: 'Stage 1',
     },
     {
@@ -53,8 +53,8 @@ export function StatsCards({
       label: 'Completed This Month',
       value: completedThisMonth,
       icon: CheckCircle,
-      color: 'bg-charcoal-50 text-charcoal-600',
-      borderColor: 'border-charcoal-100',
+      color: 'bg-sage-50 text-sage-600',
+      borderColor: 'border-sage-100',
     },
   ]
 
@@ -70,14 +70,14 @@ export function StatsCards({
               <stat.icon className="w-4 h-4" />
             </div>
             {stat.subtitle && (
-              <span className="text-[10px] font-medium text-charcoal-400 uppercase tracking-wider">
+              <span className="text-[10px] font-medium text-sage-400 uppercase tracking-wider">
                 {stat.subtitle}
               </span>
             )}
           </div>
           <div className="space-y-1">
-            <p className="text-2xl font-semibold text-charcoal-800">{stat.value}</p>
-            <p className="text-xs text-charcoal-500">{stat.label}</p>
+            <p className="text-2xl font-semibold text-sage-800">{stat.value}</p>
+            <p className="text-xs text-sage-500">{stat.label}</p>
           </div>
         </div>
       ))}

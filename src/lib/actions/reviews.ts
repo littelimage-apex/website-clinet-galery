@@ -25,7 +25,7 @@ export async function addRevisionComment(
 
     // Get current project data
     const { data: project, error: fetchError } = await supabase
-      .from('projects')
+      .from('sessions')
       .select('client_data')
       .eq('id', projectId)
       .single()
@@ -69,7 +69,7 @@ export async function addRevisionComment(
 
     // Update the project
     const { error: updateError } = await supabase
-      .from('projects')
+      .from('sessions')
       .update({
         client_data: {
           ...clientData,
@@ -103,7 +103,7 @@ export async function approveImage(
 
     // Get current project data
     const { data: project, error: fetchError } = await supabase
-      .from('projects')
+      .from('sessions')
       .select('client_data')
       .eq('id', projectId)
       .single()
@@ -131,7 +131,7 @@ export async function approveImage(
 
     // Update the project
     const { error: updateError } = await supabase
-      .from('projects')
+      .from('sessions')
       .update({
         client_data: {
           ...clientData,
@@ -166,7 +166,7 @@ export async function requestRevision(
 
     // Get current project data
     const { data: project, error: fetchError } = await supabase
-      .from('projects')
+      .from('sessions')
       .select('client_data')
       .eq('id', projectId)
       .single()
@@ -196,7 +196,7 @@ export async function requestRevision(
 
     // Update the project
     const { error: updateError } = await supabase
-      .from('projects')
+      .from('sessions')
       .update({
         client_data: {
           ...clientData,
@@ -227,7 +227,7 @@ export async function approveAllImages(projectId: string): Promise<ActionResult>
 
     // Get current project data
     const { data: project, error: fetchError } = await supabase
-      .from('projects')
+      .from('sessions')
       .select('client_data, current_stage')
       .eq('id', projectId)
       .single()
@@ -271,7 +271,7 @@ export async function approveAllImages(projectId: string): Promise<ActionResult>
 
     // Update project to Stage 3
     const { error: updateError } = await supabase
-      .from('projects')
+      .from('sessions')
       .update({
         current_stage: 3,
         status: 'completed',

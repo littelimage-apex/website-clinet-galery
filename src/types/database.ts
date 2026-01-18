@@ -9,67 +9,135 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      projects: {
+      clients: {
         Row: {
-          assets: Json
-          child_name: string | null
-          client_data: Json
-          created_at: string
-          current_stage: number
+          created_at: string | null
+          email: string | null
+          full_name: string | null
           id: string
-          occasion: string | null
-          package_limit: number
-          session_date: string | null
-          status: string
-          title: string
-          updated_at: string
+          phone: string | null
+          updated_at: string | null
           user_id: string
         }
         Insert: {
-          assets?: Json
-          child_name?: string | null
-          client_data?: Json
-          created_at?: string
-          current_stage?: number
+          created_at?: string | null
+          email?: string | null
+          full_name?: string | null
           id?: string
-          occasion?: string | null
-          package_limit?: number
-          session_date?: string | null
-          status?: string
-          title: string
-          updated_at?: string
+          phone?: string | null
+          updated_at?: string | null
           user_id: string
         }
         Update: {
-          assets?: Json
-          child_name?: string | null
-          client_data?: Json
-          created_at?: string
-          current_stage?: number
+          created_at?: string | null
+          email?: string | null
+          full_name?: string | null
           id?: string
-          occasion?: string | null
-          package_limit?: number
-          session_date?: string | null
-          status?: string
-          title?: string
-          updated_at?: string
+          phone?: string | null
+          updated_at?: string | null
           user_id?: string
         }
         Relationships: []
+      }
+      occasions: {
+        Row: {
+          active: boolean | null
+          created_at: string | null
+          description: string | null
+          id: string
+          image_url: string | null
+          name: string
+          updated_at: string | null
+        }
+        Insert: {
+          active?: boolean | null
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          name: string
+          updated_at?: string | null
+        }
+        Update: {
+          active?: boolean | null
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          name?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      sessions: {
+        Row: {
+          assets: Json | null
+          child_name: string | null
+          client_data: Json | null
+          client_id: string
+          created_at: string | null
+          current_stage: number | null
+          id: string
+          occasion_id: string | null
+          package_limit: number | null
+          session_date: string | null
+          status: string | null
+          title: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          assets?: Json | null
+          child_name?: string | null
+          client_data?: Json | null
+          client_id: string
+          created_at?: string | null
+          current_stage?: number | null
+          id?: string
+          occasion_id?: string | null
+          package_limit?: number | null
+          session_date?: string | null
+          status?: string | null
+          title?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          assets?: Json | null
+          child_name?: string | null
+          client_data?: Json | null
+          client_id?: string
+          created_at?: string | null
+          current_stage?: number | null
+          id?: string
+          occasion_id?: string | null
+          package_limit?: number | null
+          session_date?: string | null
+          status?: string | null
+          title?: string | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sessions_client_id_fkey"
+            columns: ["client_id"]
+            isOneToOne: false
+            referencedRelation: "clients"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "sessions_occasion_id_fkey"
+            columns: ["occasion_id"]
+            isOneToOne: false
+            referencedRelation: "occasions"
+            referencedColumns: ["id"]
+          }
+        ]
       }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      append_to_revision_history: {
-        Args: { new_revision: Json; project_id: string }
-        Returns: undefined
-      }
-      append_to_selection_manifest: {
-        Args: { new_selection: Json; project_id: string }
-        Returns: undefined
-      }
+      [_ in never]: never
     }
     Enums: {
       [_ in never]: never
@@ -81,9 +149,17 @@ export type Database = {
 }
 
 // Helper types for the application
-export type Project = Database['public']['Tables']['projects']['Row']
-export type ProjectInsert = Database['public']['Tables']['projects']['Insert']
-export type ProjectUpdate = Database['public']['Tables']['projects']['Update']
+export type Client = Database['public']['Tables']['clients']['Row']
+export type Occasion = Database['public']['Tables']['occasions']['Row']
+export type Session = Database['public']['Tables']['sessions']['Row']
+export type SessionInsert = Database['public']['Tables']['sessions']['Insert']
+export type SessionUpdate = Database['public']['Tables']['sessions']['Update']
+
+// Extend Session with joined data if needed
+export interface SessionWithDetails extends Session {
+  clients?: Client | null
+  occasions?: Occasion | null
+}
 
 // Selection manifest item type
 export interface SelectionItem {

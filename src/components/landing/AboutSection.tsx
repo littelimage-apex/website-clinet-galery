@@ -20,18 +20,18 @@ export default function AboutSection() {
               />
             </div>
             {/* Decorative elements */}
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-lavender-200 rounded-2xl -z-10" />
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-sage-200 rounded-2xl -z-10" />
             <div className="absolute -top-6 -left-6 w-24 h-24 bg-cream-200 rounded-full -z-10" />
           </div>
 
           {/* Content Side */}
           <div className="lg:pl-8">
-            <p className="font-script text-xl text-lavender-500 mb-2">About Us</p>
-            <h2 className="font-serif text-4xl md:text-5xl text-charcoal-800 mb-6">
+            <p className="font-serif text-xl text-sage-500 mb-2">About Us</p>
+            <h2 className="font-serif text-4xl md:text-5xl text-sage-800 mb-6">
               The Heart Behind the Lens
             </h2>
 
-            <div className="space-y-4 text-charcoal-600 leading-relaxed">
+            <div className="space-y-4 text-sage-600 leading-relaxed">
               <p>
                 Welcome to Little Image Photography, where we believe that every tiny yawn,
                 every curious gaze, and every peaceful slumber tells a story worth preserving forever.
@@ -51,18 +51,18 @@ export default function AboutSection() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 mt-10 pt-10 border-t border-lavender-100">
+            <div className="grid grid-cols-3 gap-6 mt-10 pt-10 border-t border-sage-100">
               <div className="text-center">
-                <p className="font-serif text-3xl md:text-4xl text-lavender-600">500+</p>
-                <p className="text-charcoal-500 text-sm mt-1">Happy Families</p>
+                <p className="font-serif text-3xl md:text-4xl text-sage-600">500+</p>
+                <p className="text-sage-500 text-sm mt-1">Happy Families</p>
               </div>
               <div className="text-center">
-                <p className="font-serif text-3xl md:text-4xl text-lavender-600">8+</p>
-                <p className="text-charcoal-500 text-sm mt-1">Years Experience</p>
+                <p className="font-serif text-3xl md:text-4xl text-sage-600">8+</p>
+                <p className="text-sage-500 text-sm mt-1">Years Experience</p>
               </div>
               <div className="text-center">
-                <p className="font-serif text-3xl md:text-4xl text-lavender-600">100%</p>
-                <p className="text-charcoal-500 text-sm mt-1">Love & Care</p>
+                <p className="font-serif text-3xl md:text-4xl text-sage-600">100%</p>
+                <p className="text-sage-500 text-sm mt-1">Love & Care</p>
               </div>
             </div>
 

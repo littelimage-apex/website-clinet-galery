@@ -16,27 +16,31 @@ export default async function PortalLayout({
     redirect('/login')
   }
 
-  // Fetch user's projects for the sidebar
-  const { data: projects, error: projectsError } = await supabase
-    .from('projects')
-    .select('*')
-    .eq('user_id', user.id)
+  // Fetch user's sessions for the sidebar
+  const { data: sessions, error: sessionsError } = await supabase
+    .from('sessions')
+    .select(`
+      *,
+      occasions (*),
+      clients!inner (*)
+    `)
+    .eq('clients.user_id', user.id)
     .order('created_at', { ascending: false })
 
-  if (projectsError) {
-    console.error('Error fetching projects:', projectsError)
+  if (sessionsError) {
+    console.error('Error fetching sessions:', sessionsError)
   }
 
   // Get user's display name from metadata or email
   const userName = user.user_metadata?.full_name ||
-                   user.user_metadata?.name ||
-                   user.email?.split('@')[0] ||
-                   'Guest'
+    user.user_metadata?.name ||
+    user.email?.split('@')[0] ||
+    'Guest'
 
   return (
     <div className="min-h-screen bg-background">
       <Sidebar
-        projects={projects || []}
+        sessions={sessions || []}
         userName={userName}
         userEmail={user.email || ''}
       />
